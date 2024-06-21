@@ -28,14 +28,14 @@ class InternationalizationBuilder
     final fields =
         (element).fields.where((field) => field.isStatic && field.isConst);
 
-    _writeToFiles(locales, fields);
+    _writeToFiles(locales, fields, _getInputDirectory(buildStep));
     return '';
   }
 
-  Future<void> _writeToFiles(
-      List<String?> locales, Iterable<FieldElement> fields) async {
+  Future<void> _writeToFiles(List<String?> locales,
+      Iterable<FieldElement> fields, String directory) async {
     for (var locale in locales) {
-      final fileName = 'lang/$locale.dart';
+      final fileName = '$directory/lang/$locale.dart';
       final file = File(fileName);
 
       Map<String, String> existingMap = {};
@@ -73,6 +73,14 @@ class InternationalizationBuilder
       }
     }
     return map;
+  }
+
+  String _getInputDirectory(BuildStep buildStep) {
+    final inputId = buildStep.inputId;
+    final inputDirectory = inputId.pathSegments
+        .sublist(0, inputId.pathSegments.length - 1)
+        .join('/');
+    return inputDirectory;
   }
 }
 
