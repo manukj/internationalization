@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:get_internationalization/src/annotations.dart';
+import 'package:internationalization/src/annotations.dart';
 import 'package:source_gen/source_gen.dart';
 
 class InternationalizationBuilder
@@ -26,7 +26,7 @@ class InternationalizationBuilder
         .toList();
 
     final fields =
-        (element).fields.where((field) => field.isStatic && field.isConst);
+        (element).fields.where((field) => field.isStatic && field.isPublic);
 
     _writeToFiles(locales, fields, _getInputDirectory(buildStep));
     return '';
@@ -46,19 +46,20 @@ class InternationalizationBuilder
         file.createSync(recursive: true);
       }
 
-      final buffer = StringBuffer();
-      buffer.writeln('const Map<String, String> $locale = {');
       for (var field in fields) {
         final key = field.name;
         final value = field.computeConstantValue()?.toStringValue();
-        if (!existingMap.containsKey(key)) {
-          buffer.writeln('  \'$key\': \'$value\',');
-        }
+        existingMap[key] = value ?? '';
       }
+
+      final buffer = StringBuffer();
+      buffer.writeln('const Map<String, String> $locale = {');
+      existingMap.forEach((key, value) {
+        buffer.writeln('  \'$key\': \'$value\',');
+      });
       buffer.writeln('};');
 
-      await file.writeAsString(buffer.toString(),
-          mode: FileMode.writeOnlyAppend);
+      await file.writeAsString(buffer.toString(), mode: FileMode.write);
     }
   }
 

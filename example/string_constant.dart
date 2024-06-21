@@ -1,7 +1,9 @@
-import 'package:get_internationalization/get_internationalization.dart';
+
+import 'package:internationalization/internationalization.dart';
 
 @Internationalization(['en', 'es'])
 class StringConstant {
-  static const String hello = 'hello';
-  static const String world = 'world';
+  static String hello = 'hello';
+  static String world = 'world';
+  static String welcome = 'welcome';
 }
