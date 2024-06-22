@@ -37,25 +37,34 @@ class InternationalizationBuilder
     for (var locale in locales) {
       final fileName = '$directory/lang/$locale.dart';
       final file = File(fileName);
+      final buffer = StringBuffer();
 
       Map<String, String> existingMap = {};
+      buffer.writeln('const Map<String, String> $locale = {');
+      
       if (file.existsSync()) {
         final content = await file.readAsString();
         existingMap = _parseExistingMap(content);
+        existingMap.forEach((key, value) {
+          buffer.writeln('  \'$key\': \'$value\',');
+        });
       } else {
         file.createSync(recursive: true);
       }
 
+      Map<String, String> newMaps = {};
       for (var field in fields) {
-        final key = field.name;
-        final value = field.computeConstantValue()?.toStringValue();
-        existingMap[key] = value ?? '';
+        // taking both key and value as same
+        final key = field.computeConstantValue()?.toStringValue() ?? '';
+        final value = key;
+        if (!existingMap.containsKey(value) && value.isNotEmpty) {
+          print('adding key: $key, value: $value ---------');
+          newMaps[value] = value;
+        }
       }
 
-      final buffer = StringBuffer();
-      buffer.writeln('const Map<String, String> $locale = {');
-      existingMap.forEach((key, value) {
-        buffer.writeln('  \'$key\': \'$value\',');
+      newMaps.forEach((key, value) {
+        buffer.writeln('  \'$value\': \'$value\',');
       });
       buffer.writeln('};');
 
