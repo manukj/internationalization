@@ -20,9 +20,8 @@ dependencies:
   lang_internationalization: ^1.0.0
 
 dev_dependencies:
-  build_runner: ^2.0.0
-  source_gen: ^1.0.0
-  analyzer: ^5.12.0
+  build_runner: 
+  source_gen: 
 ```
 
 Then run:
