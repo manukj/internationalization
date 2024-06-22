@@ -2,8 +2,9 @@ targets:
   $default:
     builders:
       lang_internationalization|lang_internationalization:
+        enabled: true
         generate_for:
-          - lib/**/*.dart
+          - lib/*.dart
           - example/*.dart
 
 builders:
