@@ -1,5 +1,5 @@
-class Internationalization {
+class LangInternationalization {
   final List<String> locales;
 
-  const Internationalization(this.locales);
+  const LangInternationalization(this.locales);
 }

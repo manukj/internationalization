@@ -1,7 +1,7 @@
 
 import 'package:lang_internationalization/lang_internationalization.dart';
 
-@Internationalization(['en', 'es'])
+@LangInternationalization(['en', 'es'])
 class StringConstant {
   static String hello = 'hello';
   static String world = 'world';

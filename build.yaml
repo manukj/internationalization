@@ -8,7 +8,7 @@ targets:
 
 builders:
   lang_internationalization:
-    import: "package:lang_internationalization/src/internationalization_builder.dart"
+    import: "package:lang_internationalization/src/lang_internationalization_builder.dart"
     builder_factories: ["internationalizationBuilder"]
     build_extensions: {".dart": [".g.dart"]}
     auto_apply: dependents

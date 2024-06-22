@@ -7,7 +7,7 @@ import 'package:lang_internationalization/src/annotations.dart';
 import 'package:source_gen/source_gen.dart';
 
 class InternationalizationBuilder
-    extends GeneratorForAnnotation<Internationalization> {
+    extends GeneratorForAnnotation<LangInternationalization> {
   @override
   Future<FutureOr<String>> generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) async {
@@ -86,4 +86,4 @@ class InternationalizationBuilder
 }
 
 Builder internationalizationBuilder(BuilderOptions options) =>
-    SharedPartBuilder([InternationalizationBuilder()], 'lang_internationalization');
+    SharedPartBuilder([InternationalizationBuilder()], 'internationalization');

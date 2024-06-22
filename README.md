@@ -42,7 +42,7 @@ import 'package:lang_internationalization/annotations.dart';
 
 part 'string_constant.g.dart';
 
-@Internationalisation(['en', 'zh'])
+@LangInternationalization(['en', 'zh'])
 class StringConstant {
   static const String hello = 'hello';
   static const String world = 'world';
@@ -57,10 +57,8 @@ Run the following command to generate the localization files:
 dart run build_runner build
 ```
 
+**Generated localization files will be created in the same directory as your source files, under a `lang` subdirectory with the name of the local u have given in LangInternationalization**
 
-### Step 4: Use the Generated Localization Files
-
-The generated localization files will be created in the same directory as your source files, under a `lang` subdirectory. You can use these files in your application to access localized strings.
 
 ## Example
 
