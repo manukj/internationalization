@@ -1,5 +1,5 @@
 
-import 'package:internationalization/internationalization.dart';
+import 'package:lang_internationalization/lang_internationalization.dart';
 
 @Internationalization(['en', 'es'])
 class StringConstant {

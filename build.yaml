@@ -1,14 +1,14 @@
 targets:
   $default:
     builders:
-      internationalization|internationalization:
+      lang_internationalization|lang_internationalization:
         generate_for:
           - lib/**/*.dart
           - example/*.dart
 
 builders:
-  internationalization:
-    import: "package:internationalization/src/internationalization_builder.dart"
+  lang_internationalization:
+    import: "package:lang_internationalization/src/internationalization_builder.dart"
     builder_factories: ["internationalizationBuilder"]
     build_extensions: {".dart": [".g.dart"]}
     auto_apply: dependents

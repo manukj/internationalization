@@ -3,7 +3,7 @@ Sure! Below are the steps written in Markdown format for your `README.md` file:
 ```markdown
 # Internationalization
 
-A Dart package for generating internationalization files from annotated classes. This package helps you manage localization in your Flutter applications by automatically generating localization files based on your annotations.
+A Dart package for generating lang_internationalization files from annotated classes. This package helps you manage localization in your Flutter applications by automatically generating localization files based on your annotations.
 
 ## Features
 
@@ -17,7 +17,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  internationalization: ^1.0.0
+  lang_internationalization: ^1.0.0
 
 dev_dependencies:
   build_runner: ^2.0.0
@@ -38,7 +38,7 @@ flutter pub get
 Use the `@Internationalisation` annotation to specify the locales for your classes:
 
 ```dart
-import 'package:internationalization/annotations.dart';
+import 'package:lang_internationalization/annotations.dart';
 
 part 'string_constant.g.dart';
 

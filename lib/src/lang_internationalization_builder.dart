@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
-import 'package:internationalization/src/annotations.dart';
+import 'package:lang_internationalization/src/annotations.dart';
 import 'package:source_gen/source_gen.dart';
 
 class InternationalizationBuilder
@@ -11,7 +11,7 @@ class InternationalizationBuilder
   @override
   Future<FutureOr<String>> generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) async {
-    print('Generating internationalization files...');
+    print('Generating lang_internationalization files...');
     if (element is! ClassElement) {
       throw InvalidGenerationSourceError(
         'Generator cannot target `${element.displayName}`. '
@@ -86,4 +86,4 @@ class InternationalizationBuilder
 }
 
 Builder internationalizationBuilder(BuilderOptions options) =>
-    SharedPartBuilder([InternationalizationBuilder()], 'internationalization');
+    SharedPartBuilder([InternationalizationBuilder()], 'lang_internationalization');
