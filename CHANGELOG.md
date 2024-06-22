@@ -10,3 +10,6 @@
 
 ## 0.0.3
 - added support for latest dart version
+
+## 0.0.4
+- fixed few bugs regarding generated value
