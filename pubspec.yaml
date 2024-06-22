@@ -1,19 +1,19 @@
 name: internationalization
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+description: A Dart package for generating internationalization files from annotated classes.
 
-publish_to: 'none'
+version: 0.0.1
+homepage: https://github.com/manukj/internationalization
+repository: https://github.com/manukj/internationalization
+issue_tracker: https://github.com/manukj/internationalization/issues
+
 
 environment:
-  sdk: ^3.2.3
+  sdk: '>=2.19.0 <4.0.0'
 
-# Add regular dependencies here.
 dependencies:
-  source_gen: ^1.5.0
+  analyzer: ^5.12.0
+  build: ^2.0.0
+  source_gen: ^1.0.0
 
 dev_dependencies:
-  lints: ^2.1.0
-  test: ^1.24.0
   build_runner: ^2.0.0
-  analyzer: ^6.4.1
