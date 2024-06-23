@@ -41,7 +41,7 @@ class InternationalizationBuilder
 
       Map<String, String> existingMap = {};
       buffer.writeln('const Map<String, String> $locale = {');
-      
+
       if (file.existsSync()) {
         final content = await file.readAsString();
         existingMap = _parseExistingMap(content);
@@ -74,7 +74,7 @@ class InternationalizationBuilder
 
   Map<String, String> _parseExistingMap(String content) {
     final map = <String, String>{};
-    final regex = RegExp(r"'(\w+)':\s*'([^']*)',");
+    final regex = RegExp(r"'([^']+)':\s*'([^']*)',");
     for (var match in regex.allMatches(content)) {
       var key = match.group(1);
       var value = match.group(2);
