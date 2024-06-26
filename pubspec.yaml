@@ -1,7 +1,7 @@
 name: lang_internationalization
 description: A Dart package for generating lang_internationalization files from annotated classes.
 
-version: 0.0.4
+version: 0.0.5
 homepage: https://github.com/manukj/lang_internationalization
 repository: https://github.com/manukj/lang_internationalization
 issue_tracker: https://github.com/manukj/lang_internationalization/issues

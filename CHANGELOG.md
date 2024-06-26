@@ -13,3 +13,6 @@
 
 ## 0.0.4
 - fixed few bugs regarding generated value
+
+## 0.0.5
+- renamed from Internationalization to LangInternationalization
